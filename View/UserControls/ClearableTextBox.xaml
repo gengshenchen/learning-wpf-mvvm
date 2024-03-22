@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="karl.View.UserControls.ClearableTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:karl.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="250">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="TextBox"></Style>
+        </Grid.Resources>
+        <TextBlock x:Name="tbPlaceholder" Text="{Binding Placehoder, 
+            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                   VerticalAlignment="Center" 
+                   FontSize="16" FontWeight="Light" 
+                   Foreground="DarkGray"  Margin="5,0,0,0"
+                   Panel.ZIndex="-1"/>
+
+        <TextBox x:Name="tbInput"  VerticalAlignment="Center" 
+                 FontSize="16" FontWeight="Light" 
+                 Background="Transparent" 
+                 TextChanged="tbInput_TextChanged"/>
+        
+        <Button  x:Name="btnclear"
+                 Width="30" Height="{Binding ElementName=tbInput, Path=ActualHeight}"
+                 VerticalAlignment="{Binding ElementName=tbInput, Path=VerticalAlignment}"
+                 Padding="0" 
+                 Margin="0"
+                 HorizontalAlignment="Right"
+                 Content="X"
+                 Background="Transparent" Foreground="LightGray"  
+                 BorderThickness="0" 
+                 Click="btnclear_Click" 
+                 />
+        
+
+    </Grid>
+</UserControl>
